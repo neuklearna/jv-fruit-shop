@@ -1,6 +1,7 @@
 package core.basesyntax;
 
 import core.basesyntax.model.FruitTransaction;
+import core.basesyntax.model.Storage;
 import core.basesyntax.service.service.strategy.BalanceOperation;
 import core.basesyntax.service.DataConverter;
 import core.basesyntax.service.service.impl.DataConverterImpl;
@@ -25,6 +26,8 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] arg) throws IOException {
+
+        Storage storage = new Storage();
         // 1. Czytanie danych z pliku CSV
         FileReader fileReader = new FileReaderImpl();
         List<String> inputReport = fileReader.read("src/main/resources/reportToRead.csv");
@@ -34,10 +37,10 @@ public class Main {
 
         // 3. Tworzenie mapy z handlerami dla każdej operacji
         Map<FruitTransaction.Operation, OperationHandler> operationHandlers = new HashMap<>();
-        operationHandlers.put(FruitTransaction.Operation.BALANCE, new BalanceOperation());
-        operationHandlers.put(FruitTransaction.Operation.PURCHASE, new PurchaseOperation());
-        operationHandlers.put(FruitTransaction.Operation.RETURN, new ReturnOperation());
-        operationHandlers.put(FruitTransaction.Operation.SUPPLY, new SupplyOperation());
+        operationHandlers.put(FruitTransaction.Operation.BALANCE, new BalanceOperation(storage));
+        operationHandlers.put(FruitTransaction.Operation.PURCHASE, new PurchaseOperation(storage));
+        operationHandlers.put(FruitTransaction.Operation.RETURN, new ReturnOperation(storage));
+        operationHandlers.put(FruitTransaction.Operation.SUPPLY, new SupplyOperation(storage));
         OperationStrategy operationStrategy = new OperationStrategyImpl(operationHandlers);
 
         // 4. Przetwarzanie transakcji — aktualizacja magazynu
@@ -46,7 +49,7 @@ public class Main {
         shopService.process(transactions);
 
         // 5. Generowanie raportu ze stanu magazynu
-        ReportGenerator reportGenerator = new ReportGeneratorImpl();
+        ReportGenerator reportGenerator = new ReportGeneratorImpl(storage);
         String resultingReport = reportGenerator.getReport();
 
         // 6. Zapis raportu do pliku CSV

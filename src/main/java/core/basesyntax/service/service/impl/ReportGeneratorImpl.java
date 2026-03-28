@@ -8,9 +8,15 @@ import java.util.Set;
 
 public class ReportGeneratorImpl implements ReportGenerator {
 
+    private Storage storage;
+
+    public ReportGeneratorImpl(Storage storage) {
+        this.storage = storage;
+    }
+
     @Override
     public String getReport() {
-        Map<String, Integer> storage = Storage.getStorage();
+        Map<String, Integer> storage = storage.getStorage();
         StringBuilder sb = new StringBuilder();
         sb.append("fruit,quantity\n");
         Set<Map.Entry<String, Integer>> entries = storage.entrySet();

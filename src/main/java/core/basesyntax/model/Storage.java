@@ -7,7 +7,7 @@ public class Storage {
 
     private Map<String, Integer> storage = new HashMap<>();
 
-    public static Map<String, Integer> getStorage() {
+    public  Map<String, Integer> getStorage() {
         return storage;
     }
 }
