@@ -1,7 +1,9 @@
-package core.basesyntax.service;
+package core.basesyntax.service.service.strategy;
 
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Storage;
+import core.basesyntax.service.OperationHandler;
+
 import java.util.Map;
 
 public class ReturnOperation implements OperationHandler {

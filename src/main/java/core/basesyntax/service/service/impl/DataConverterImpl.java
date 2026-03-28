@@ -1,6 +1,8 @@
-package core.basesyntax.service;
+package core.basesyntax.service.service.impl;
 
 import core.basesyntax.model.FruitTransaction;
+import core.basesyntax.service.DataConverter;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
