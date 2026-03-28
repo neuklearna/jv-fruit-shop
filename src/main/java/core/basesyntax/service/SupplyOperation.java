@@ -2,10 +2,9 @@ package core.basesyntax.service;
 
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Storage;
-
 import java.util.Map;
 
-public class SupplyOperation implements OperationHandler{
+public class SupplyOperation implements OperationHandler {
     @Override
     public void handle(FruitTransaction fruitTransaction) {
         Map<String, Integer> balance = Storage.getStorage();

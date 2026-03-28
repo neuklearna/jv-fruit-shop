@@ -4,7 +4,7 @@ import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Storage;
 import java.util.Map;
 
-public class ReturnOperation implements OperationHandler{
+public class ReturnOperation implements OperationHandler {
 
     @Override
     public void handle(FruitTransaction fruitTransaction) {
