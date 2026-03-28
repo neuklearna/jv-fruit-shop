@@ -1,9 +1,8 @@
-package core.basesyntax.service.service.strategy;
+package core.basesyntax.service.strategy;
 
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Storage;
 import core.basesyntax.service.OperationHandler;
-
 import java.util.Map;
 
 public class SupplyOperation implements OperationHandler {
