@@ -15,6 +15,7 @@ public class FruitTransaction {
     public String getFruit() {
         return fruit;
     }
+
     public Operation getOperation() {
         return operation;
     }

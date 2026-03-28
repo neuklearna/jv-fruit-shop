@@ -22,12 +22,12 @@ public class DataConverterImpl implements DataConverter {
         return result;
     }
 
-    private  FruitTransaction.Operation getOpertation(String code) {
+    private FruitTransaction.Operation getOpertation(String code) {
         for (FruitTransaction.Operation operation : FruitTransaction.Operation.values()) {
             if (operation.getCode().equals(code)) {
                 return operation;
             }
         }
-    throw new RuntimeException();
+        throw new RuntimeException();
     }
 }
