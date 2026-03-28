@@ -2,6 +2,13 @@ package core.basesyntax;
 
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Storage;
+import core.basesyntax.service.DataConverter;
+import core.basesyntax.service.FileReader;
+import core.basesyntax.service.FileWriter;
+import core.basesyntax.service.OperationHandler;
+import core.basesyntax.service.OperationStrategy;
+import core.basesyntax.service.ReportGenerator;
+import core.basesyntax.service.ShopService;
 import core.basesyntax.service.impl.DataConverterImpl;
 import core.basesyntax.service.impl.FileReaderImpl;
 import core.basesyntax.service.impl.FileWriterImpl;
@@ -12,18 +19,13 @@ import core.basesyntax.service.strategy.BalanceOperation;
 import core.basesyntax.service.strategy.PurchaseOperation;
 import core.basesyntax.service.strategy.ReturnOperation;
 import core.basesyntax.service.strategy.SupplyOperation;
-import core.basesyntax.service.DataConverter;
-import core.basesyntax.service.FileReader;
-import core.basesyntax.service.FileWriter;
-import core.basesyntax.service.OperationHandler;
-import core.basesyntax.service.OperationStrategy;
-import core.basesyntax.service.ReportGenerator;
-import core.basesyntax.service.ShopService;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 public class Main {
+
     public static void main(String[] arg) throws IOException {
 
         Storage storage = new Storage();
