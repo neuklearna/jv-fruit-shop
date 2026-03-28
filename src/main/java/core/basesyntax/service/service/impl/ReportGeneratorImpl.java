@@ -16,10 +16,10 @@ public class ReportGeneratorImpl implements ReportGenerator {
 
     @Override
     public String getReport() {
-        Map<String, Integer> storage = storage.getStorage();
+        Map<String, Integer> storageMap = storage.getStorage();
         StringBuilder sb = new StringBuilder();
         sb.append("fruit,quantity\n");
-        Set<Map.Entry<String, Integer>> entries = storage.entrySet();
+        Set<Map.Entry<String, Integer>> entries = storageMap.entrySet();
         for (Map.Entry<String, Integer> entry : entries) {
             sb.append(entry.getKey() + "," + entry.getValue() + "\n");
         }
