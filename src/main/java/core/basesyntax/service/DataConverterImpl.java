@@ -10,15 +10,16 @@ public class DataConverterImpl implements DataConverter {
     public List<FruitTransaction> convertToTransaction(List<String> data) {
         List<FruitTransaction> result = data.stream()
                 .skip(1)
-               .map(l -> {
+                .map(l -> {
                     String[] parts = l.split(",");
                     int quantity = Integer.parseInt(parts[2]);
                     FruitTransaction.Operation operation = getOpertation(parts[0]);
-                    FruitTransaction fruitTransaction = new FruitTransaction(quantity,parts[1], operation);
+                    FruitTransaction fruitTransaction =
+                            new FruitTransaction(quantity, parts[1], operation);
                     return fruitTransaction;
                 })
                 .collect(Collectors.toList());
-        return  result;
+        return result;
     }
 
     private  FruitTransaction.Operation getOpertation(String code) {
