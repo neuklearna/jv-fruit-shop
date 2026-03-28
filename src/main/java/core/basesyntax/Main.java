@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Main {
-    public static void main(String[] arg) {
+    public static void main(String[] arg) throws IOException {
         // 1. Czytanie danych z pliku CSV
         FileReader fileReader = new FileReaderImpl();
         List<String> inputReport = fileReader.read("src/main/resources/reportToRead.csv");
